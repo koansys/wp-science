@@ -1,0 +1,176 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "instanceia90ab6c1": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": "us-east-1a",
+        "DisableApiTermination": "FALSE",
+        "ImageId": "ami-3fec7956",
+        "InstanceType": "m1.medium",
+        "KernelId": "aki-88aa75e1",
+        "KeyName": "wp-science-east",
+        "Monitoring": "false",
+        "SecurityGroups": [
+          {
+            "Ref": "sgWPSCIENCEEAST"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "science-app-left"
+          }
+        ]
+      }
+    },
+    "instanceia70ab6cf": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": "us-east-1a",
+        "DisableApiTermination": "FALSE",
+        "ImageId": "ami-3fec7956",
+        "InstanceType": "m1.medium",
+        "KernelId": "aki-88aa75e1",
+        "KeyName": "wp-science-east",
+        "Monitoring": "false",
+        "SecurityGroups": [
+          {
+            "Ref": "sgWPSCIENCEEAST"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "science-adm-left"
+          }
+        ]
+      }
+    },
+    "instanceid38db2bc": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": "us-east-1b",
+        "DisableApiTermination": "FALSE",
+        "ImageId": "ami-3fec7956",
+        "InstanceType": "m1.medium",
+        "KernelId": "aki-88aa75e1",
+        "KeyName": "wp-science-east",
+        "Monitoring": "false",
+        "SecurityGroups": [
+          {
+            "Ref": "sgWPSCIENCEEAST"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "science-app-right"
+          }
+        ]
+      }
+    },
+    "instanceid18db2be": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": "us-east-1b",
+        "DisableApiTermination": "FALSE",
+        "ImageId": "ami-3fec7956",
+        "InstanceType": "m1.medium",
+        "KernelId": "aki-88aa75e1",
+        "KeyName": "wp-science-east",
+        "Monitoring": "false",
+        "SecurityGroups": [
+          {
+            "Ref": "sgWPSCIENCEEAST"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "science-adm-right"
+          }
+        ]
+      }
+    },
+    "instancei6c9c2209": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": "us-east-1a",
+        "DisableApiTermination": "FALSE",
+        "ImageId": "ami-3fec7956",
+        "InstanceType": "m1.large",
+        "KernelId": "aki-88aa75e1",
+        "KeyName": "wp-science-east",
+        "Monitoring": "false",
+        "SecurityGroups": [
+          {
+            "Ref": "sgWPSCIENCEEAST"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "science-db-left"
+          }
+        ]
+      }
+    },
+    "instanceifd4f6c92": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": "us-east-1b",
+        "DisableApiTermination": "FALSE",
+        "ImageId": "ami-3fec7956",
+        "InstanceType": "m1.large",
+        "KernelId": "aki-88aa75e1",
+        "KeyName": "wp-science-east",
+        "Monitoring": "false",
+        "SecurityGroups": [
+          {
+            "Ref": "sgWPSCIENCEEAST"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "science-db-right"
+          }
+        ]
+      }
+    },
+    "sgWPSCIENCEEAST": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "PUB HTTP, PRIV SSH/HTTPS",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "dbsgdefault": {
+      "Type": "AWS::RDS::DBSecurityGroup",
+      "Properties": {
+        "GroupDescription": "default"
+      }
+    }
+  },
+  "Description": "Science.nasa.gov and other irrelevant nodes\r\n"
+}
